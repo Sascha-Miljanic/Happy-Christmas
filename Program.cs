@@ -33,6 +33,7 @@ public class Program
                            /_\_\_\_\_\_\_\_\_\_\
                           /_/?no?w/_/_/?n@?w/_/_/?no?w/_/?n0?w/_\
                                    [___]
+
                          """;
 
         Dictionary<char, Action> charMap = new()
@@ -43,9 +44,10 @@ public class Program
             { 't', () => Console.Write("\t") }
         };
 
+        var cursorPos = Console.GetCursorPosition();
         while (true)
         {
-            Console.SetCursorPosition(0,0);
+            Console.SetCursorPosition(cursorPos.Left,cursorPos.Top);
             SmartPrintLine(message, '?', charMap);
             getNextColour();//this just shifts the colours by one position
             Thread.Sleep(500);
